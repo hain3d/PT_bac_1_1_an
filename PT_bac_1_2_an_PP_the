@@ -1,0 +1,46 @@
+#from fractions import *
+from fractions import Fraction as Fr # đặt là Fr để tránh trùng với biến F
+
+print('Giải hệ phương trình bậc nhất 2 ẩn số:\n ax + by = c \n dx + ey = f')
+a = float(input('Nhập hệ số a:'))
+b = float(input('Nhập hệ số b:'))
+c = float(input('Nhập hệ số c:'))
+d = float(input('Nhập hệ số d:'))
+e = float(input('Nhập hệ số e:'))
+f = float(input('Nhập hệ số f:'))
+#x = float 
+#y = float 
+A = str(a)
+B = str(b)
+C = str(c)
+D = str(d)
+E = str(e)
+F = str(f)
+print('Hệ phương trình cần giải là:')
+print(A+' * x + '+B+' * y = '+C)
+print(D+' * x + '+E+' * y = '+F)
+#Phương pháp thế y bằng x
+#y2 = (f/e - d/e +'* x')
+h1 = f/e
+h2 = d/e
+
+#print('h1:', h1,'h2:', h2)
+#print(y2)
+# a*x + b*h1 - b*h2*x = c
+# a*x - b*h2*x = c - b*h1
+# x*(a - b*h2) = c - b*h1
+Tx = int(c - b*h1)
+Mx = int(a - b*h2)
+
+if ((c - b*h1)%(a - b*h2) == 0):
+    x = (c - b*h1)/(a - b*h2)
+else:
+    x = Fr(int(Tx), int(Mx))
+print('x = ', x)
+# y = f/e - d/e*x
+#y = (h1 - h2*x)
+if ((f - d*x)%e == 0):
+    y = (f - d*x)/e
+else:
+    y = Fr(int(f*Mx - d*Tx), int(e*Mx))   
+print('y = ', y)
